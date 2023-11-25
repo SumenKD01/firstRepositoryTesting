@@ -19,4 +19,12 @@
 
 const titleBar = document.getElementById('main-header');
 
-titleBar.style.borderBottom = 'solid 2px black'
+titleBar.style.borderBottom = 'solid 2px black';
+
+const allClassElements = document.getElementsByClassName('list-group-item');
+
+allClassElements[2].style.backgroundColor = 'green';
+
+for(let i in allClassElements){
+    allClassElements[i].style.fontWeight = 'bold';
+}
