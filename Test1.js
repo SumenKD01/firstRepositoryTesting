@@ -17,14 +17,25 @@
 // console.log(document.links);
 // console.log(document.images);
 
-const titleBar = document.getElementById('main-header');
+// const titleBar = document.getElementById('main-header');
 
-titleBar.style.borderBottom = 'solid 2px black';
+// titleBar.style.borderBottom = 'solid 2px black';
 
-const allClassElements = document.getElementsByClassName('list-group-item');
+// const allClassElements = document.getElementsByClassName('list-group-item');
 
-allClassElements[2].style.backgroundColor = 'green';
+// allClassElements[2].style.backgroundColor = 'green';
 
-for(let i in allClassElements){
-    allClassElements[i].style.fontWeight = 'bold';
-}
+// for(let i in allClassElements){
+//     allClassElements[i].style.fontWeight = 'bold';
+// }
+
+const newClassElement = document.getElementsByClassName('newLi');
+console.log("Hello",newClassElement[0]);
+
+newClassElement[0].style.backgroundColor = 'yellow';
+
+const allLiElements = document.getElementsByTagName('li');
+
+console.log(allLiElements[4]);
+
+allLiElements[4].style.color = 'red';
