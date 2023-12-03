@@ -40,10 +40,57 @@
 
 // allLiElements[4].style.color = 'red';
 
-const secondLiElement = document.querySelector(".list-group-item:nth-child(2)");
-console.log(secondLiElement);
-secondLiElement.style.backgroundColor = 'green';
+// const secondLiElement = document.querySelector(".list-group-item:nth-child(2)");
+// console.log(secondLiElement);
+// secondLiElement.style.backgroundColor = 'green';
 
-const thirdLiElement = document.querySelector(".list-group-item:nth-child(3)");
-console.log(thirdLiElement);
-thirdLiElement.style.display = 'none';
+// const thirdLiElement = document.querySelector(".list-group-item:nth-child(3)");
+// console.log(thirdLiElement);
+// thirdLiElement.style.display = 'none';
+
+// const testElement1 = document.querySelector('li:nth-child(1)');
+// console.log(testElement1.parentElement);
+
+const testElement2 = document.querySelector('ul');
+console.log(testElement2);
+console.log(testElement2.lastElementChild.innerHTML);
+
+const testElement3 = document.querySelector('ul');
+console.log(testElement3.lastChild);
+testElement3.lastChild.textContent = "This is not ok Sumen";
+
+let newElement = document.createElement('div');
+newElement.innerHTML = " This is new Element";
+console.log(newElement);
+
+const testElement4 = document.querySelector('ul');
+console.log(testElement4.firstElementChild);
+
+const testElement5 = document.querySelector('ul');
+console.log(testElement5.firstChild);
+
+const testElement6 = document.querySelector('li');
+console.log(testElement6.nextSibling);
+
+const testElement7 = document.querySelector('li');
+console.log(testElement7.nextElementSibling);
+
+const testElement8 = document.querySelector('li');
+console.log(testElement8.previousSibling);
+
+const testElement9 = document.querySelector('li:last-child');
+console.log(testElement9.previousElementSibling);
+
+const testElement10 = document.querySelector('li');
+console.log(testElement10);
+
+testElement10.setAttribute("newAttribute","Best");
+console.log(testElement10);
+
+const testElement11 = document.getElementsByTagName('form')[0];
+console.log(testElement11);
+testElement11.appendChild(newElement);
+
+const testElement12 = document.getElementsByTagName('ul')[0];
+console.log(testElement12);
+testElement12.appendChild(newElement);
