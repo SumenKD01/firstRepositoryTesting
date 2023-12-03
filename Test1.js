@@ -1,96 +1,96 @@
-// Examine the document object
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
 
-// console.dir(document);
+// Form submit event
+form.addEventListener('submit', addItem);
+// Delete event
+itemList.addEventListener('click', removeItem);
+// Filter event
+filter.addEventListener('keyup', filterItems);
 
-// console.log(document.domain);
-// console.log(document.URL);
-// console.log(document.doctype);
-// console.log(document.title);
-// console.log(document.head);
 
-// console.log(document.body);
-// console.log(document.all);
-// console.log(document.all[10]);
-// document.all[10].textContent = "hello Sumen";
-// console.log(document.forms);
-// console.log(document.forms[0]);
-// console.log(document.links);
-// console.log(document.images);
+var items = itemList.getElementsByTagName('li');
+// Convert to an array
+Array.from(items).forEach(function (item) {
+    // Create edit button element
+    var editBtn = document.createElement('button');
+    
+    // Add classes to edit button
+    editBtn.className = 'btn btn-success btn-sm float-right edit';
+    
+    // Append text node
+    editBtn.appendChild(document.createTextNode('Edit'));
+    
+    // Append button to li
+    item.appendChild(editBtn);
+});
 
-// const titleBar = document.getElementById('main-header');
+// Add item
+function addItem(e) {
+    e.preventDefault();
 
-// titleBar.style.borderBottom = 'solid 2px black';
+    // Get input value
+    var newItem = document.getElementById('item').value;
 
-// const allClassElements = document.getElementsByClassName('list-group-item');
+    // Create new li element
+    var li = document.createElement('li');
+    // Add class
+    li.className = 'list-group-item';
+    // Add text node with input value
+    li.appendChild(document.createTextNode(newItem));
 
-// allClassElements[2].style.backgroundColor = 'green';
+    // Create del button element
+    var deleteBtn = document.createElement('button');
 
-// for(let i in allClassElements){
-//     allClassElements[i].style.fontWeight = 'bold';
-// }
+    // Add classes to del button
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
 
-// const newClassElement = document.getElementsByClassName('newLi');
-// console.log("Hello",newClassElement[0]);
+    // Append text node
+    deleteBtn.appendChild(document.createTextNode('X'));
 
-// newClassElement[0].style.backgroundColor = 'yellow';
+    // Append button to li
+    li.appendChild(deleteBtn);
 
-// const allLiElements = document.getElementsByTagName('li');
+    // Create edit button element
+    var editBtn = document.createElement('button');
+    
+    // Add classes to edit button
+    editBtn.className = 'btn btn-success btn-sm float-right edit';
+    
+    // Append text node
+    editBtn.appendChild(document.createTextNode('Edit'));
+    
+    // Append button to li
+    li.appendChild(editBtn);
 
-// console.log(allLiElements[4]);
+    // Append li to list
+    itemList.appendChild(li);
+}
 
-// allLiElements[4].style.color = 'red';
+// Remove item
+function removeItem(e) {
+    if (e.target.classList.contains('delete')) {
+        if (confirm('Are You Sure?')) {
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
 
-// const secondLiElement = document.querySelector(".list-group-item:nth-child(2)");
-// console.log(secondLiElement);
-// secondLiElement.style.backgroundColor = 'green';
-
-// const thirdLiElement = document.querySelector(".list-group-item:nth-child(3)");
-// console.log(thirdLiElement);
-// thirdLiElement.style.display = 'none';
-
-// const testElement1 = document.querySelector('li:nth-child(1)');
-// console.log(testElement1.parentElement);
-
-const testElement2 = document.querySelector('ul');
-console.log(testElement2);
-console.log(testElement2.lastElementChild.innerHTML);
-
-const testElement3 = document.querySelector('ul');
-console.log(testElement3.lastChild);
-testElement3.lastChild.textContent = "This is not ok Sumen";
-
-let newElement = document.createElement('div');
-newElement.innerHTML = " This is new Element";
-console.log(newElement);
-
-const testElement4 = document.querySelector('ul');
-console.log(testElement4.firstElementChild);
-
-const testElement5 = document.querySelector('ul');
-console.log(testElement5.firstChild);
-
-const testElement6 = document.querySelector('li');
-console.log(testElement6.nextSibling);
-
-const testElement7 = document.querySelector('li');
-console.log(testElement7.nextElementSibling);
-
-const testElement8 = document.querySelector('li');
-console.log(testElement8.previousSibling);
-
-const testElement9 = document.querySelector('li:last-child');
-console.log(testElement9.previousElementSibling);
-
-const testElement10 = document.querySelector('li');
-console.log(testElement10);
-
-testElement10.setAttribute("newAttribute","Best");
-console.log(testElement10);
-
-const testElement11 = document.getElementsByTagName('form')[0];
-console.log(testElement11);
-testElement11.appendChild(newElement);
-
-const testElement12 = document.getElementsByTagName('ul')[0];
-console.log(testElement12);
-testElement12.appendChild(newElement);
+// Filter Items
+function filterItems(e) {
+    // convert text to lowercase
+    var text = e.target.value.toLowerCase();
+    // Get lis
+    var items = itemList.getElementsByTagName('li');
+    // Convert to an array
+    Array.from(items).forEach(function (item) {
+        var itemName = item.firstChild.textContent;
+        if (itemName.toLowerCase().indexOf(text) != -1) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
