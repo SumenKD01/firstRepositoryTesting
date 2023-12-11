@@ -39,3 +39,5 @@ const allLiElements = document.getElementsByTagName('li');
 console.log(allLiElements[4]);
 
 allLiElements[4].style.color = 'red';
+
+allLiElements[3].innerHTML = 'We are bestfriends';
