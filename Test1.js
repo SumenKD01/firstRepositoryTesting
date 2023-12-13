@@ -7,13 +7,21 @@ form.addEventListener('submit', addToStorage);
 function addToStorage(e) {
     e.preventDefault();
     var nameGiven = document.getElementById('name').value;
-    var age = document.getElementById('age').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
     let objectMade = {
         name: nameGiven,
-        age: age
+        email: email,
+        phone: phone
     }
     // console.log(nameGiven, age);
-    localStorage.setItem("objMade", objectMade);
-    localStorage.setItem("objMadeString", JSON.stringify(objectMade));
+    var allUserDetailList = document.getElementById('allUserDetails');
+    let newDetail = document.createElement("li");
+    console.log(newDetail);
+    newDetail.textContent = ("name:" + objectMade.name + "-" + "email:" + objectMade.email + "-" + "phone:" + objectMade.phone)
+    allUserDetailList.appendChild(newDetail);
+
+    // localStorage.setItem(email, objectMade);
+    localStorage.setItem(email, JSON.stringify(objectMade));
     console.log(localStorage);
 }
