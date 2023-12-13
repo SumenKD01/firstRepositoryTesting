@@ -8,7 +8,12 @@ function addToStorage(e) {
     e.preventDefault();
     var nameGiven = document.getElementById('name').value;
     var age = document.getElementById('age').value;
-    console.log(nameGiven, age);
-    localStorage.setItem("Name", nameGiven);
-    localStorage.setItem("Age", age);
+    let objectMade = {
+        name: nameGiven,
+        age: age
+    }
+    // console.log(nameGiven, age);
+    localStorage.setItem("objMade", objectMade);
+    localStorage.setItem("objMadeString", JSON.stringify(objectMade));
+    console.log(localStorage);
 }
